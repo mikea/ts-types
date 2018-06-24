@@ -1,6 +1,7 @@
-import { AssertTrue } from "./Assertions";
+// tslint:disable:no-namespace
 
-module AssertTrueTest {
+import { AssertTrue } from "./Assertions";
+namespace AssertTrueTest {
     type _true = AssertTrue<true>;
     type _trueWithMessage = AssertTrue<true, "should be true">;
 

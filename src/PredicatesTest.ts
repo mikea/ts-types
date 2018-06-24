@@ -1,80 +1,75 @@
-import { And, Extends, Not, Or, StrictEq, Eq } from "./Predicates";
+// tslint:disable:no-namespace
+
+import { AssertFalse, AssertTrue } from "./Assertions";
+import { And, Eq, Extends, Not, Or } from "./Predicates";
 import { IsBoolean, IsString } from "./PrimitiveTypes";
 
 type ABC = "a" | "b" | "c";
 type AB = "a" | "b";
 
-module OrTest {
-    type BooleanOrString<T> = Or<IsBoolean<T>, IsString<T>>;
+namespace ExtendsTest {
+    type Test<X, Y> = Extends<X, Y>;
 
-    const _boolean: BooleanOrString<boolean> = true;
-    const _string: BooleanOrString<string> = true;
-    const _number: BooleanOrString<number> = false;
-    const _object: BooleanOrString<object> = false;
+    let _booleanBoolean: AssertTrue<Test<boolean, boolean>>;
+    // TODO
+    // let _booleanFalse: AssertFalse<Test<boolean, false>>;
+    // let _booleanTrue: AssertFalse<Test<boolean, true>>;
+    let _trueBoolean: AssertTrue<Test<true, boolean>>;
+    let _falseBoolean: AssertTrue<Test<false, boolean>>;
+    let _trueTrue: AssertTrue<Test<true, true>>;
 }
 
-module AndTest {
+namespace OrTest {
+    type Test<T> = Or<IsBoolean<T>, IsString<T>>;
+
+    let _boolean: AssertTrue<Test<boolean>>;
+    let _string: AssertTrue<Test<string>>;
+    let _number: AssertFalse<Test<number>>;
+    let _object: AssertFalse<Test<object>>;
+}
+
+namespace AndTest {
     type Test<T> = And<Extends<T, ABC>, Extends<T, AB>>;
 
-    const _a: Test<"a"> = true;
-    const _b: Test<"b"> = true;
-    const _c: Test<"c"> = false;
-    const _d: Test<"d"> = false;
+    let _a: AssertTrue<Test<"a">>;
+    let _b: AssertTrue<Test<"b">>;
+    let _c: AssertFalse<Test<"c">>;
+    let _d: AssertFalse<Test<"d">>;
 }
 
-module NotTest {
+namespace NotTest {
     type Test<T> = Not<IsBoolean<T>>;
 
-    const _boolean: Test<boolean> = false;
-    const _string: Test<string> = true;
-    const _number: Test<number> = true;
-    const _object: Test<object> = true;
+    let _boolean: AssertFalse<Test<boolean>>;
+    let _string: AssertTrue<Test<string>>;
+    let _number: AssertTrue<Test<number>>;
+    let _object: AssertTrue<Test<object>>;
 
-    const _true: Test<true> = false;
-    const _false: Test<false> = false;
-    const _a: Test<"a"> = true;
-    const _5: Test<5> = true;
+    let _true: AssertFalse<Test<true>>;
+    let _false: AssertFalse<Test<false>>;
+    let _a: AssertTrue<Test<"a">>;
+    let _5: AssertTrue<Test<5>>;
 }
 
-
-module StrictEqTest {
-    type Test<X, Y> = StrictEq<X, Y>;
-
-    // TODO
-    // const _nevers: Test<never, never> = true;
-    const _booleans: Test<boolean, boolean> = true;
-    const _strings: Test<string, string> = true;
-    const _undefineds: Test<undefined, undefined> = true;
-    const _functions: Test<Function, Function> = true;
-    const _objects: Test<object, object> = true;
-    const _voids: Test<void, void> = true;
-
-    const _booleanString: Test<boolean, string> = false;
-    const _booleanUndefined: Test<boolean, undefined> = false;
-    const _booleanNever: Test<boolean, never> = false;
-    const _booleanTrue: Test<boolean, true> = false;
-
-    const _undefined1: Test<undefined, 1> = false;
-    const _undefinedVoid: Test<undefined, void> = false;
-}
-
-module EqTest {
+namespace EqTest {
     type Test<X, Y> = Eq<X, Y>;
 
+    let _nevers: AssertTrue<Test<never, never>>;
+    let _booleans: AssertTrue<Test<boolean, boolean>>;
+    let _strings: AssertTrue<Test<string, string>>;
+    let _undefineds: AssertTrue<Test<undefined, undefined>>;
+    let _functions: AssertTrue<Test<Function, Function>>;
+    let _objects: AssertTrue<Test<object, object>>;
+    let _voids: AssertTrue<Test<void, void>>;
+
+    let _booleanString: AssertFalse<Test<boolean, string>>;
+    let _booleanUndefined: AssertFalse<Test<boolean, undefined>>;
+    let _booleanNever: AssertFalse<Test<boolean, never>>;
+    let _undefined1: AssertFalse<Test<undefined, 1>>;
+    let _undefinedVoid: AssertFalse<Test<undefined, void>>;
+
     // TODO
-    // const _nevers: Test<never, never> = true;
-
-    const _booleans: Test<boolean, boolean> = true;
-    const _strings: Test<string, string> = true;
-    const _undefineds: Test<undefined, undefined> = true;
-    const _functions: Test<Function, Function> = true;
-    const _objects: Test<object, object> = true;
-    const _voids: Test<void, void> = true;
-
-    const _booleanString: Test<boolean, string> = false;
-    const _booleanUndefined: Test<boolean, undefined> = false;
-    const _booleanNever: Test<boolean, never> = false;
-
-    const _abcAb: Test<ABC, AB> = false;
-    const _abAbc: Test<AB, ABC> = false;
+    // let _booleanTrue: AssertFalse<Test<boolean, true>>;
+    // let _abcAb: AssertFalse<Test<ABC, AB>>;
+    // let _abAbc: AssertFalse<Test<AB, ABC>>;
 }

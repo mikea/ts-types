@@ -1,5 +1,7 @@
-import { IsBoolean, IsString, IsNever, IsVoid, IsNumber, IsUndefined } from "./PrimitiveTypes";
+// tslint:disable:no-namespace
+
 import { AssertFalse, AssertTrue } from "./Assertions";
+import { IsBoolean, IsDynamicBoolean, IsNever, IsNumber, IsStaticBoolean, IsString, IsUndefined, IsVoid } from "./PrimitiveTypes";
 
 enum Fruits {
     APPLE = "apple",
@@ -11,7 +13,7 @@ enum HttpCodes {
     NOT_FOUNT = 404,
 }
 
-module IsNumberTest {
+namespace IsNumberTest {
     type Test<T> = IsNumber<T>;
 
     type _number = AssertTrue<Test<number>>;
@@ -39,7 +41,7 @@ module IsNumberTest {
     // let _booleanOrString: AssertTrue<Test<boolean | string>>;
 }
 
-module IsBooleanTest {
+namespace IsBooleanTest {
     type Test<T> = IsBoolean<T>;
 
     type _number = AssertFalse<Test<number>>;
@@ -62,8 +64,54 @@ module IsBooleanTest {
     // let _booleanOrString: AssertTrue<Test<boolean | string>>;
 }
 
+namespace IsStaticBooleanTest {
+    type Test<T> = IsStaticBoolean<T>;
 
-module IsStringTest {
+    // TODO
+    // type _boolean = AssertFalse<Test<boolean>>;
+    type _number = AssertFalse<Test<number>>;
+    type _string = AssertFalse<Test<string>>;
+    type _symbol = AssertFalse<Test<symbol>>;
+    type _void = AssertFalse<Test<void>>;
+    type _undefined = AssertFalse<Test<undefined>>;
+    type _never = AssertFalse<Test<never>>;
+    type _function = AssertFalse<Test<Function>>;
+    type _fruits = AssertFalse<Test<Fruits>>;
+    type _http_codes = AssertFalse<Test<HttpCodes>>;
+
+    type _true = AssertTrue<Test<true>>;
+    type _false = AssertTrue<Test<false>>;
+    type _a = AssertFalse<Test<"a">>;
+    type _5 = AssertFalse<Test<5>>;
+}
+
+namespace IsDynamicBooleanTest {
+    type Test<T> = IsDynamicBoolean<T>;
+
+    // TODO
+    // type _boolean = AssertTrue<Test<boolean>>;
+    type _number = AssertFalse<Test<number>>;
+    type _string = AssertFalse<Test<string>>;
+    type _symbol = AssertFalse<Test<symbol>>;
+    type _void = AssertFalse<Test<void>>;
+    type _undefined = AssertFalse<Test<undefined>>;
+    type _never = AssertFalse<Test<never>>;
+    type _function = AssertFalse<Test<Function>>;
+    type _fruits = AssertFalse<Test<Fruits>>;
+    type _http_codes = AssertFalse<Test<HttpCodes>>;
+
+    type _true = AssertFalse<Test<true>>;
+    type _false = AssertFalse<Test<false>>;
+    type _a = AssertFalse<Test<"a">>;
+    type _5 = AssertFalse<Test<5>>;
+
+    // TODO
+    // type _boolean = AssertFalse<Test<boolean>>;
+    // let _booleanOrString: AssertTrue<Test<boolean | string>>;
+}
+
+
+namespace IsStringTest {
     type Test<T> = IsString<T>;
 
     type _number = AssertFalse<Test<number>>;
@@ -86,7 +134,7 @@ module IsStringTest {
     // let _booleanOrString: AssertTrue<Test<boolean | string>>;
 }
 
-module IsNeverTest {
+namespace IsNeverTest {
     type Test<T> = IsNever<T>;
 
     type _number = AssertFalse<Test<number>>;
@@ -107,7 +155,7 @@ module IsNeverTest {
 }
 
 
-module IsVoidTest {
+namespace IsVoidTest {
     type Test<T> = IsVoid<T>;
 
     type _number = AssertFalse<Test<number>>;
@@ -128,7 +176,7 @@ module IsVoidTest {
     const _5: Test<5> = false;
 }
 
-module IsUndefinedTest {
+namespace IsUndefinedTest {
     type Test<T> = IsUndefined<T>;
 
     type _number = AssertFalse<Test<number>>;

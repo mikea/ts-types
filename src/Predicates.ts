@@ -1,24 +1,24 @@
-// A Predicate is a type that statically evaluates to true or never.
+import { IsBoolean, IsFalse, IsTrue } from "./PrimitiveTypes";
 
-export type True = true;
-export type False = false;
+// A Predicate is a type that statically evaluates to true or false.
+
+export type Predicate<T> = true | false;
 
 // X extends Y
-export type Extends<X, Y> = X extends Y ? True : False;
+export type Extends<X, Y> = X extends Y ? true : false;
 
-// Type equality that doesn't work for never
-export type StrictEq<X, Y> = And<Extends<X, Y>, Extends<Y, X>>;
-
-export type Eq<X, Y> = StrictEq<X, Y>;
+// Type equality
+export type Eq<X, Y> = And<Extends<X, Y>, Extends<Y, X>>;
 
 // If expression
-export type If<Condition, Then, Else> = Condition extends True ? Then : Else;
+export type If<Condition, Then, Else> = Condition extends true ? Then : Else;
 
 // Logical And
-export type And<P1, P2> = If<P1, P2, False>;
+export type And<P1, P2> = If<P1, P2, false>;
+export type And3<P1, P2, P3> = And<P1, And<P2, P3>>;
 
 // Logical Or
-export type Or<P1, P2> = If<P1, True, P2>;
+export type Or<P1, P2> = If<P1, true, If<P2, true, false>>;
 
 // Logical Not
-export type Not<P> = If<P, False, True>;
+export type Not<P> = If<P, false, true>;
