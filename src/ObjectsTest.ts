@@ -1,7 +1,7 @@
 // tslint:disable:no-namespace
 
 import { AssertTrue } from "./Assertions";
-import { FunctionPropertyNames, PropertyNames, PropertyNamesNotOfType, PropertyNamesOfType, PropertiesOfType } from "./Objects";
+import { FunctionPropertyNames, PropertiesOfType, PropertyNames, PropertyNamesNotOfType, PropertyNamesOfType } from "./Objects";
 import { Eq } from "./Predicates";
 
 
