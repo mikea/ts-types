@@ -38,3 +38,6 @@ export type NotVoid<T> = Not<IsVoid<T>>;
 
 export type IsAny<T> = Extends<T, any>;
 export type NotAny<T> = Not<IsAny<T>>;
+
+export type IsArray<T> = Extends<T, any[]>;
+export type NotArray<T> = Not<IsArray<T>>;

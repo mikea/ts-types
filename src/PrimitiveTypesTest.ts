@@ -1,7 +1,7 @@
 // tslint:disable:no-namespace
 
 import { AssertFalse, AssertTrue } from "./Assertions";
-import { IsBoolean, IsDynamicBoolean, IsNever, IsNumber, IsStaticBoolean, IsString, IsUndefined, IsVoid } from "./PrimitiveTypes";
+import { IsArray, IsBoolean, IsDynamicBoolean, IsNever, IsNumber, IsStaticBoolean, IsString, IsUndefined, IsVoid } from "./PrimitiveTypes";
 
 enum Fruits {
     APPLE = "apple",
@@ -196,3 +196,17 @@ namespace IsUndefinedTest {
     let _5: AssertFalse<Test<5>>;
 }
 
+namespace IsArrayTest {
+    type _number = AssertFalse<IsArray<number>>;
+    type _boolean = AssertFalse<IsArray<boolean>>;
+    type _string = AssertFalse<IsArray<string>>;
+    type _symbol = AssertFalse<IsArray<symbol>>;
+    type _void = AssertFalse<IsArray<void>>;
+    type _undefined = AssertFalse<IsArray<undefined>>;
+    type _never = AssertFalse<IsArray<never>>;
+    type _function = AssertFalse<IsArray<Function>>;
+    type _fruits = AssertFalse<IsArray<Fruits>>;
+    type _http_codes = AssertFalse<IsArray<HttpCodes>>;
+
+    type _booleanArray = AssertTrue<IsArray<boolean[]>>;
+}

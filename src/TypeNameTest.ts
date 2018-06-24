@@ -30,6 +30,7 @@ namespace TypeNameTestTest {
     type _fruits = AssertTrue<Test<Fruits, "string">>;
     type _http_codes = AssertTrue<Test<HttpCodes, "number">>;
     type _person = AssertTrue<Test<IPerson, "object">>;
+    type _booleanArray = AssertTrue<Test<boolean[], "array">>;
 
     type _5 = AssertTrue<Test<5, "number">>;
     type _56 = AssertTrue<Test<5 | 6, "number">>;

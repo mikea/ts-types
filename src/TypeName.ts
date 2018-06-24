@@ -1,3 +1,4 @@
+// as precise type name as possible.
 export type TypeName<T> =
     T extends string ? "string" :
     T extends number ? "number" :
@@ -8,4 +9,5 @@ export type TypeName<T> =
     T extends Function ? "function" :
     [T] extends [never] ? "never" :
     T extends null ? "null" :
+    T extends any[] ? "array" :
     "object";
