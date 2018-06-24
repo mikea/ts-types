@@ -73,3 +73,22 @@ namespace EqTest {
     // let _abcAb: AssertFalse<Test<ABC, AB>>;
     // let _abAbc: AssertFalse<Test<AB, ABC>>;
 }
+
+// Some very special TS type.
+namespace TrueAndFalseTest {
+    type TF = true & false;
+
+    let _boolean: AssertFalse<Eq<TF, boolean>>;
+    let _string: AssertFalse<Eq<TF, string>>;
+    let _number: AssertFalse<Eq<TF, number>>;
+    let _object: AssertFalse<Eq<TF, object>>;
+    let _undefined: AssertFalse<Eq<TF, undefined>>;
+    let _void: AssertFalse<Eq<TF, void>>;
+    // TODO: not sure what goes on here.
+    let _never: AssertFalse<Eq<TF, never>>;
+
+    let _true: AssertFalse<Eq<TF, true>>;
+    let _false: AssertFalse<Eq<TF, false>>;
+    let _a: AssertFalse<Eq<TF, "a">>;
+    let _5: AssertFalse<Eq<TF, 5>>;
+}

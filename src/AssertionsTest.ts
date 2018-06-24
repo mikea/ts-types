@@ -1,6 +1,7 @@
 // tslint:disable:no-namespace
 
-import { AssertTrue } from "./Assertions";
+import { AssertSuper, AssertTrue } from "./Assertions";
+
 namespace AssertTrueTest {
     type _true = AssertTrue<true>;
     type _trueWithMessage = AssertTrue<true, "should be true">;
@@ -9,4 +10,8 @@ namespace AssertTrueTest {
     // type _false = AssertTrue<false>;
     // TODO
     type _never = AssertTrue<never>;
+}
+
+namespace AssertSuperTest {
+    type _booleanTrue = AssertSuper<boolean, true>;
 }

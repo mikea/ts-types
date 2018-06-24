@@ -29,7 +29,7 @@ let _assert_p1 = AssertTrue<P1<boolean>>;
 let _assert_p2 = AssertFalse<P2<null>>;
 ```
 
-## Object Manipulation
+## Objects Manipulation
 
 Pick or reject properties of a given type:
 

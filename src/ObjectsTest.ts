@@ -1,7 +1,7 @@
 // tslint:disable:no-namespace
 
 import { AssertTrue } from "./Assertions";
-import { FunctionPropertyNames, PropertiesOfType, PropertyNames, PropertyNamesNotOfType, PropertyNamesOfType } from "./Objects";
+import { FunctionPropertyNames, PropertiesOfType, PropertyNames, PropertyNamesNotOfType, PropertyNamesOfType, PropertyTypes } from "./Objects";
 import { Eq } from "./Predicates";
 
 
@@ -11,6 +11,12 @@ namespace PropertyNamesTest {
         "name" | "onclick" | "member">>;
 }
 
+namespace PropertyTypesTest {
+    let _test1: AssertTrue<Eq<
+        PropertyTypes<{ name: string; onclick: () => void; member(): void; }>,
+        string | (() => void)
+        >>;
+}
 namespace PropertyNamesOfTypeTest {
     let _test1: AssertTrue<Eq<
         PropertyNamesOfType<{ ok: boolean; name: string; onclick: () => void; member(): void; }, boolean | string>,

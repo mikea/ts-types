@@ -1,8 +1,12 @@
-import { Extends, If, Predicate } from "./Predicates";
+import { If } from "./Conditionals";
+import { Extends, Predicate } from "./Predicates";
 import { IsFunction } from "./PrimitiveTypes";
 
 // All property names of a type.
 export type PropertyNames<O extends object> = keyof O;
+
+// All property types of a type.
+export type PropertyTypes<O extends object> = O[keyof O];
 
 // Extracts all property names of O, which are of type T.
 export type PropertyNamesOfType<O extends object, T> = {
