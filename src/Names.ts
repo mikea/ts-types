@@ -10,4 +10,16 @@ export type TypeName<T> =
     [T] extends [never] ? "never" :
     T extends null ? "null" :
     T extends any[] ? "array" :
-    "object";
+    T extends object ? "object" :
+    "error_should_never_happens"
+    ;
+
+// also handles common values of value types, useful for debugging.
+export type DebugTypeName<T> =
+    T extends true ? "true" :
+    T extends false ? "false" :
+    T extends 0 ? "0" :
+    T extends 1 ? "1" :
+    T extends "" ? "\"\"" :
+    TypeName<T>
+    ;
