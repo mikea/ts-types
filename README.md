@@ -7,10 +7,9 @@ i.e. it has 0 runtime code.
 
 Predicates are types that are resolved to true or false:
 
-
 ```typescript
 type P1<T> = IsNotNull<T>;
-type P2<T> = Or<P1<T>, IsString<T>>; 
+type P2<T> = Or<P1<T>, IsString<T>>;
 ```
 
 Predicate combinators are defined in [`Predicates.ts`](./src/Predicates.ts).
