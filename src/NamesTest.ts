@@ -1,6 +1,6 @@
 import { AssertTrue } from "./Assertions";
+import { DebugTypeName, TypeName } from "./Names";
 import { Eq } from "./Predicates";
-import { TypeName, DebugTypeName } from "./Names";
 
 // tslint:disable:no-namespace
 
