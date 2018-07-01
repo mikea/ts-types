@@ -1,6 +1,8 @@
 import { If } from "./Conditionals";
-import { Extends, Predicate } from "./Predicates";
-import { IsFunction } from "./PrimitiveTypes";
+import { Extends, Not, Predicate } from "./Predicates";
+
+export type IsObject<T> = Extends<T, Object>;
+export type NotObject<T> = Not<IsObject<T>>;
 
 // All property names of a type.
 export type PropertyNames<O extends object> = keyof O;

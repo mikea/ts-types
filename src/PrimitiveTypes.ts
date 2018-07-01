@@ -16,9 +16,6 @@ export type IsEmptyString<T> = Extends<T, "">;
 export type IsFunction<T> = Extends<T, Function>;
 export type NotFunction<T> = Not<IsFunction<T>>;
 
-export type IsObject<T> = Extends<T, Object>;
-export type NotObject<T> = Not<IsObject<T>>;
-
 export type IsSymbol<T> = Extends<T, Symbol>;
 export type NotSymbol<T> = Not<IsSymbol<T>>;
 
@@ -38,6 +35,3 @@ export type NotVoid<T> = Not<IsVoid<T>>;
 
 export type IsAny<T> = Extends<T, any>;
 export type NotAny<T> = Not<IsAny<T>>;
-
-export type IsArray<T> = Extends<T, any[]>;
-export type NotArray<T> = Not<IsArray<T>>;
