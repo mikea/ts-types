@@ -23,7 +23,7 @@ jobs:
         CI: true
     - name: npm publish
       run: |
-        npm login --registry=https://npm.pkg.github.com
+        # npm login --registry=https://npm.pkg.github.com
         npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
