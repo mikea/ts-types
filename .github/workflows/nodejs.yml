@@ -24,3 +24,6 @@ jobs:
         npm run lint
       env:
         CI: true
+    - name: publish
+      run : |
+        npm publish
