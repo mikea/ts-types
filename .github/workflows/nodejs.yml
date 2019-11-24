@@ -7,16 +7,13 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 12.x
+        registry-url: 'https://npm.pkg.github.com'
     - name: npm install, build, and test
       run: |
         npm ci
@@ -24,8 +21,9 @@ jobs:
         npm run lint
       env:
         CI: true
-    - name: publish
+    - name: npm publish
       run : |
+        npm login --registry=https://npm.pkg.github.com
         npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
