@@ -1,7 +1,6 @@
 # ts-types
 
-A TypeScript type manipulation library. This is a type-only library,
-i.e. it has 0 runtime code.
+A TypeScript type manipulation library. It is a types-only library, i.e. it has 0 runtime code.
 
 ## Predicates
 

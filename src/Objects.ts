@@ -31,3 +31,10 @@ export type FunctionPropertyNames<O extends object> = PropertyNamesOfType<O, Fun
 
 // Extracts function properties of O.
 export type FunctionProperties<O extends object> = PropertiesOfType<O, Function>;
+
+// Extracts function properties of O.
+export type NonFunctionProperties<O extends object> = PropertiesNotOfType<O, Function>;
+
+// Diff<T, U> removes all properties in U from T.
+export type Diff<T extends object, U extends object> = Pick<T, Exclude<keyof T, keyof U>>;
+
