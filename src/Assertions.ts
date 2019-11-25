@@ -1,5 +1,3 @@
-import { Eq } from "./Predicates";
-
 // Assertion<T> resolves to never (success) or doesn't exist (assertion failure)
 
 // X supertype of Y

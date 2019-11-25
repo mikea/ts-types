@@ -1,5 +1,5 @@
 import { If } from "./Conditionals";
-import { Extends, Not, Predicate } from "./Predicates";
+import { Extends, Not } from "./Predicates";
 
 export type IsObject<T> = Extends<T, Object>;
 export type NotObject<T> = Not<IsObject<T>>;

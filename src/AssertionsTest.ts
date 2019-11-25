@@ -2,16 +2,16 @@
 
 import { AssertSuper, AssertTrue } from "./Assertions";
 
-namespace AssertTrueTest {
-    type _true = AssertTrue<true>;
-    type _trueWithMessage = AssertTrue<true, "should be true">;
+export namespace AssertTrueTest {
+    export type _true = AssertTrue<true>;
+    export type _trueWithMessage = AssertTrue<true, "should be true">;
 
     // all these should fail:
     // type _false = AssertTrue<false>;
     // TODO
-    type _never = AssertTrue<never>;
+    export type _never = AssertTrue<never>;
 }
 
-namespace AssertSuperTest {
-    type _booleanTrue = AssertSuper<boolean, true>;
+export namespace AssertSuperTest {
+    export type _booleanTrue = AssertSuper<boolean, true>;
 }

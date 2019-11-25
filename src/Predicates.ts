@@ -1,5 +1,4 @@
 import { If } from "./Conditionals";
-import { IsBoolean, IsFalse, IsTrue } from "./PrimitiveTypes";
 
 // A Predicate is a type that statically evaluates to true or false.
 

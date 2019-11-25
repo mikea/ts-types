@@ -2,6 +2,7 @@
     "compilerOptions": {
         "module": "system",
         "noImplicitAny": true,
+        "noUnusedLocals": true,
         "outDir": "build/",
         "strict": true
     },
