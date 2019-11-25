@@ -2,7 +2,7 @@ import { If } from "./Conditionals";
 
 // A Predicate is a type that statically evaluates to true or false.
 
-export type Predicate<T> = true | false;
+export type Predicate<_T> = true | false;
 
 // X extends Y
 export type Extends<X, Y> = X extends Y ? true : false;
