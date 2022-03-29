@@ -1,20 +1,25 @@
 {
-  "name": "@mikea/ts-types",
-  "version": "0.2.3",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "tsc -p . --noEmit",
-    "lint": "tslint --project ."
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "tslint": "^5.20.1",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.7.2"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  }
+    "name": "@mikea/ts-types",
+    "version": "0.3.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "tsc -p . --noEmit",
+        "watch": "npx tsc --build --watch . --noEmit",
+        "format": "prettier --write '**/*.{js,css,json,md,ts}'",
+        "lint": "npx eslint ."
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.17.0",
+        "@typescript-eslint/parser": "^5.17.0",
+        "eslint": "^8.12.0",
+        "eslint-plugin-eslint-comments": "^3.2.0",
+        "prettier": "^2.6.1",
+        "typescript": "^4.6.3"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    }
 }
