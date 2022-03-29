@@ -3,27 +3,26 @@ name: Node CI
 on: [push]
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: 10.x
-        registry-url: 'https://npm.pkg.github.com'
-    - name: npm install, build, and test
-      run: |
-        npm ci
-        npm run test
-        npm run lint
-      env:
-        CI: true
-    - name: npm publish
-      run: |
-        # npm login --registry=https://npm.pkg.github.com
-        npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        steps:
+            - uses: actions/checkout@v1
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 16.x
+                  registry-url: "https://npm.pkg.github.com"
+            - name: npm install, build, and test
+              run: |
+                  npm ci
+                  npm run test
+                  npm run lint
+              env:
+                  CI: true
+            - name: npm publish
+              run: |
+                  # npm login --registry=https://npm.pkg.github.com
+                  npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
