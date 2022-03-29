@@ -37,3 +37,13 @@ interface Person { name: string; age: number; }
 type StringProps = PropertiesOfType<Person, string>;
 let _assert_props = AssertTrue<Eq<StringProps, { name: string }>>
 ```
+
+## Type Tags
+
+Store type information in values:
+
+```typescript
+type Descriptor<T> = { name: string } & WithTag<"t", T>;
+const stringDescription: Descriptor<string> = { name: "string" }; // no new storage
+let t: GetTag<"t", typeof stringDescription>;
+```

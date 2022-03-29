@@ -4,6 +4,8 @@ import { Extends, Not } from "./Predicates";
 export type IsObject<T> = Extends<T, Object>;
 export type NotObject<T> = Not<IsObject<T>>;
 
+//// Extracting information from object types
+
 // All property names of a type.
 export type PropertyNames<O extends object> = keyof O;
 
@@ -37,3 +39,8 @@ export type NonFunctionProperties<O extends object> = PropertiesNotOfType<O, Fun
 
 // Diff<T, U> removes all properties in U from T.
 export type Diff<T extends object, U extends object> = Pick<T, Exclude<keyof T, keyof U>>;
+
+//// Building object types
+
+// Object with property with a statically computed name.
+export type WithProperty<Name extends string, T> = { [k in Name]: T };

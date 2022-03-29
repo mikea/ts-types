@@ -8,6 +8,7 @@ import {
     PropertyNamesNotOfType,
     PropertyNamesOfType,
     PropertyTypes,
+    WithProperty,
 } from "./Objects";
 import { Eq } from "./Predicates";
 
@@ -55,4 +56,8 @@ export namespace FunctionPropertyNamesTest {
     export let _test1: AssertTrue<
         Eq<FunctionPropertyNames<{ name: string; onclick: () => void; member(): void }>, "onclick" | "member">
     >;
+}
+
+export namespace WithPropertyTest {
+    export type _test = AssertTrue<Eq<{ name: string }, WithProperty<"name", string>>>;
 }
