@@ -18,7 +18,5 @@ export namespace IsArrayTest {
 }
 
 export namespace ElementTypeTest {
-    export type _booleanArray = AssertTrue<Eq<
-        ElementType<boolean[]>,
-        boolean>>;
+    export type _booleanArray = AssertTrue<Eq<ElementType<boolean[]>, boolean>>;
 }

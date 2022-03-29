@@ -14,7 +14,10 @@ enum HttpCodes {
     NOT_FOUNT = 404,
 }
 
-interface IPerson { age: number; name: string }
+interface IPerson {
+    age: number;
+    name: string;
+}
 
 export namespace TypeNameTest {
     type Test<T, Name> = Eq<TypeName<T>, Name>;
@@ -69,7 +72,7 @@ export namespace DebugTypeNameTest {
     export type _5a = AssertTrue<Test<5 | "a", "string" | "number">>;
     export type _true = AssertTrue<Test<true, "true">>;
     export type _false = AssertTrue<Test<false, "false">>;
-    export type _empty = AssertTrue<Test<"", "\"\"">>;
+    export type _empty = AssertTrue<Test<"", '""'>>;
     export type _a = AssertTrue<Test<"a", "string">>;
     export type _apple = AssertTrue<Test<Fruits.APPLE, "string">>;
     export type _ok = AssertTrue<Test<HttpCodes.OK, "number">>;

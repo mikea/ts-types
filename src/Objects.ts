@@ -12,12 +12,12 @@ export type PropertyTypes<O extends object> = O[keyof O];
 
 // Extracts all property names of O, which are of type T.
 export type PropertyNamesOfType<O extends object, T> = {
-    [K in keyof O]: If<Extends<O[K], T>, K, never>
+    [K in keyof O]: If<Extends<O[K], T>, K, never>;
 }[keyof O];
 
 // Extracts all property names of O, which are not of type T.
 export type PropertyNamesNotOfType<O extends object, T> = {
-    [K in keyof O]: If<Extends<O[K], T>, never, K>
+    [K in keyof O]: If<Extends<O[K], T>, never, K>;
 }[keyof O];
 
 // Extracts properties of type T.
@@ -37,4 +37,3 @@ export type NonFunctionProperties<O extends object> = PropertiesNotOfType<O, Fun
 
 // Diff<T, U> removes all properties in U from T.
 export type Diff<T extends object, U extends object> = Pick<T, Exclude<keyof T, keyof U>>;
-

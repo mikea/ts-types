@@ -6,8 +6,8 @@ export type IsBoolean<T> = Extends<T, boolean>;
 export type NotBoolean<T> = Not<IsBoolean<T>>;
 export type IsTrue<T> = Extends<T, true>;
 export type IsFalse<T> = Extends<T, false>;
-export type IsStaticBoolean<T> = Or<IsTrue<T>, IsFalse<T>>
-export type IsDynamicBoolean<T> = And3<IsBoolean<T>, Not<IsTrue<T>>, Not<IsFalse<T>>>
+export type IsStaticBoolean<T> = Or<IsTrue<T>, IsFalse<T>>;
+export type IsDynamicBoolean<T> = And3<IsBoolean<T>, Not<IsTrue<T>>, Not<IsFalse<T>>>;
 
 export type IsString<T> = Extends<T, string>;
 export type NotString<T> = Not<IsString<T>>;
