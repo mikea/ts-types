@@ -7,7 +7,7 @@
         "test": "tsc -p . --noEmit",
         "watch": "npx tsc --build --watch .",
         "format": "prettier --write '**/*.{js,css,json,md,ts}'",
-        "lint": "npx eslint ."
+        "lint": "npx eslint src"
     },
     "author": "",
     "license": "ISC",

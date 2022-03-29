@@ -33,5 +33,6 @@ export type DebugTypeName<T> = T extends true
     : T extends 1
     ? "1"
     : T extends ""
-    ? '""'
+    ? // eslint-disable-next-line quotes
+      '""'
     : TypeName<T>;
