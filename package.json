@@ -1,13 +1,13 @@
 {
     "name": "@mikea/ts-types",
-    "version": "0.5.0",
+    "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
         "test": "tsc -p . --noEmit",
         "watch": "npx tsc --build --watch .",
         "format": "prettier --write '**/*.{js,css,json,md,ts}'",
-        "lint": "npx eslint src"
+        "lint": "npx eslint *.ts"
     },
     "author": "",
     "license": "ISC",
